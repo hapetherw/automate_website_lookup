@@ -27,8 +27,16 @@ def main():
             data_list.append(new)
             count = count + 1
             print("insert" + str(new[0]), new)
+        if (index + 1) % 100 == 0:
+            print("saved")
+            df = pd.DataFrame(data_list,
+                              columns=['#', 'Site Name', 'DA', 'PA', 'Moz Rank', 'Alexa Rank', 'CF', 'TF',
+                                       'Semrush Traffic',
+                                       'IP'])
+            df.to_csv('result.csv', index=False)
     df = pd.DataFrame(data_list,
-                      columns=['#', 'Site Name', 'DA', 'PA', 'Moz Rank', 'Alexa Rank', 'CF', 'TF', 'Semrush Traffic',
+                      columns=['#', 'Site Name', 'DA', 'PA', 'Moz Rank', 'Alexa Rank', 'CF', 'TF',
+                               'Semrush Traffic',
                                'IP'])
     df.to_csv('result.csv', index=False)
 
